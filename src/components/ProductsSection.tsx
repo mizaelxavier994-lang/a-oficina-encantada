@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Star, ShoppingCart, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useProducts, Product } from "@/hooks/useProducts";
@@ -79,7 +80,8 @@ const ProductsSection = () => {
                   transition={{ delay: index * 0.1 }}
                   className="group"
                 >
-                  <div className="bg-card rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 border border-border">
+                  <Link to={`/produto/${product.id}`} className="block">
+                    <div className="bg-card rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 border border-border cursor-pointer">
                     {/* Image Container */}
                     <div className="relative aspect-square bg-muted overflow-hidden">
                       <img
@@ -152,6 +154,7 @@ const ProductsSection = () => {
                       </p>
                     </div>
                   </div>
+                  </Link>
                 </motion.div>
               );
             })}
